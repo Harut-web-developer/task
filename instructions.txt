@@ -1,0 +1,23 @@
+1. Տվյալների բազան պռոեկտի պապկի մեջ է,
+2․ Տեղադրել php artisan serve հրամանը
+3․ Օգտատերերի քանակը 4, ավելացվում է seeder-ով
+4․ website-երի քանակը 3, ավելացվում է seeder-ով
+5․ Միգրացիաները և սիդերը աշխատեցնելու համար ամհրաժեշտ է տեղադրել php artisan migrate --seed կամ php artisan migrate:fresh --seed
+6․ subscribe կատարվում է api-ով
+ url: your domain/api/subscribe
+ method: post
+	{
+	'user_id': 1,
+	'website_id': 3
+	}
+7.Post անելուց առաջ պետք է ակտիվացնել php artisan queue:work, որպեսզի ամեն փոստ անելուց ավտոմատ աշխատի մեյլ ուղարկելը
+8․ post կատարվում է api-ով
+ url: your domain/api/post
+ method: post
+	{
+	'webside_id': 1,
+	'title': 'New blog for news',
+	'description': 'lorem ipsum dollar set'
+	}
+9.Նաև մեյլ ուղարկում է ձեռքով, երբ փոստ անելուց հետո տերմինալում գրենք php artisan send:post-emails այս հրամանը
+10.Բոլոր api-ները հավաքվել են postman-ով
